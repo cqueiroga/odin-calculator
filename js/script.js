@@ -20,6 +20,7 @@ const btn = document.querySelectorAll("button");
 const numeric = document.getElementsByClassName("numeric");
 const operatorBtn = document.getElementsByClassName("operator");
 const clearBtn = document.getElementById("clear");
+const clearEntry = document.getElementById("clear-entry");
 const equalsBtn = document.getElementById("equals");
 
 // Event listener for numeric buttons
@@ -44,9 +45,8 @@ for (i of numeric) {
 }
 
 // Event listener for operator buttons
-let operatorCount = 0;
+let operatorCount = 0; // operatorCount for chaining calculations
 for (i of operatorBtn) {
-	let total = 0;
 	i.addEventListener("click", function () {
 		if (operatorCount >= 1) {
 			equals(operator);
@@ -75,12 +75,21 @@ equalsBtn.addEventListener("click", function () {
 
 // Event listener for clear button
 clearBtn.addEventListener("click", function () {
-	output.innerHTML = 0;
-	formula.innerHTML = "";
-	operator = "";
-	operatorCount = 0;
-	num1 = 0;
-	num2 = 0;
+	clear();
+});
+
+// Event listener for clear entry button
+clearEntry.addEventListener("click", function () {
+	let formulaText = formula.innerHTML;
+	if (!operator) {
+		num1 = 0;
+		output.innerHTML = 0;
+	} else if (formulaText.includes("=")) {
+		clear();
+	} else {
+		num2 = 0;
+		output.innerHTML = 0;
+	}
 });
 
 // Declare operate function
@@ -98,7 +107,7 @@ function operate(a, b, operator) {
 	}
 }
 
-// console.log(operate(num1, num2, operator));
+// equals function to calculate values and output
 function equals(btn) {
 	let total = 0;
 	num1 = parseInt(num1);
@@ -107,5 +116,15 @@ function equals(btn) {
 	num1 = total;
 	formula.innerHTML += " " + num2 + " " + btn.value;
 	output.innerHTML = total;
+	num2 = 0;
+}
+
+// Function to reset variables, output and formula display
+function clear() {
+	output.innerHTML = 0;
+	formula.innerHTML = "";
+	operator = "";
+	operatorCount = 0;
+	num1 = 0;
 	num2 = 0;
 }
