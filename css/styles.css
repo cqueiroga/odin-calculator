@@ -16,7 +16,7 @@
 	margin: 8px auto;
 	display: flex;
 	flex-direction: column;
-	justify-content: right;
+	justify-content: center;
 	align-items: end;
 }
 
@@ -27,7 +27,7 @@
 
 #output {
 	margin: 5px;
-	font-size: 42px;
+	font-size: 34px;
 }
 
 .row {
