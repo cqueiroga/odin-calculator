@@ -84,23 +84,27 @@ button {
 	background-color: #363d42;
 }
 
-.outside-btns:hover {
+.outside-btns:hover,
+.buttons-outside:hover {
 	background-color: #363d42;
 }
 
-.outside-btns:active {
+.outside-btns:active,
+.buttons-outside:active {
 	background-color: #2d343a;
 }
 
 .numeric:hover,
 #decimal-btn:hover,
-#pos-neg-btn:hover {
+#pos-neg-btn:hover,
+.buttons-num:hover {
 	background-color: #2d343a;
 }
 
 .numeric:active,
 #decimal-btn:active,
-#pos-neg-btn:active {
+#pos-neg-btn:active,
+.buttons-num:active {
 	background-color: #363d42;
 }
 
@@ -110,10 +114,11 @@ button {
 	color: #2f373b;
 }
 
-#equals:hover {
-	filter: brightness(93%);
+#equals:hover,
+.equal-button:hover {
+	background-color: #99b5c1;
 }
 
 #equals:active {
-	opacity: 0.9;
+	opacity: 0.6;
 }
